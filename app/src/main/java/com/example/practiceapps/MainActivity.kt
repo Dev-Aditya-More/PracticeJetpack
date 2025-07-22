@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -124,62 +125,74 @@ class MainActivity : ComponentActivity() {
 //
 //}
 
+//@Composable
+//fun App(modifier: Modifier = Modifier) {
+//
+//    var toggled by remember {
+//        mutableStateOf(false)
+//    }
+//    val animatedPadding by animateDpAsState(
+//        if (toggled) {
+//            0.dp
+//        } else {
+//            20.dp
+//        }
+//    )
+//    val animateVerticalPadding by animateDpAsState(
+//        if (toggled) {
+//            20.dp
+//        } else {
+//            0.dp
+//        }
+//    )
+//    fun getRandomColor() : Color {
+//
+//        return Color(
+//
+//            Random.nextFloat(),
+//            Random.nextFloat(),
+//            Random.nextFloat(),
+//            1f
+//        )
+//    }
+//
+//    var randomColor by remember { mutableStateOf(getRandomColor()) }
+//
+//    LaunchedEffect(toggled) {
+//        if (!toggled) {
+//            randomColor = getRandomColor()
+//        }
+//    }
+//
+//    val backgroundColor by animateColorAsState(
+//        targetValue = if (toggled) Color(0xff53D9A1) else randomColor
+//    )
+//    Box(
+//        modifier = Modifier.fillMaxSize(),
+//        contentAlignment = Alignment.Center
+//    ) {
+//
+//        Box(
+//            modifier = Modifier
+//                .aspectRatio(1f)
+//                .fillMaxSize()
+//                .padding(animatedPadding, vertical = animateVerticalPadding)
+//                .background(backgroundColor)
+//                .clickable(
+//                    interactionSource = remember { MutableInteractionSource() },
+//                    indication = null
+//                ) {
+//                    toggled = !toggled
+//                }
+//        )
+//
+//    }
+//}
+
 @Composable
 fun App(modifier: Modifier = Modifier) {
 
-    var toggled by remember {
-        mutableStateOf(false)
-    }
-    val animatedPadding by animateDpAsState(
-        if (toggled) {
-            0.dp
-        } else {
-            20.dp
-        }
-    )
-    val animateVerticalPadding by animateDpAsState(
-        if (toggled) {
-            20.dp
-        } else {
-            0.dp
-        }
-    )
-    fun getRandomColor() : Color {
-
-        return Color(
-
-            Random.nextFloat(),
-            Random.nextFloat(),
-            Random.nextFloat(),
-            1f
-        )
-    }
-    val backgroundColor by animateColorAsState(
-        if (toggled) {
-            Color(0xff53D9A1)
-        } else {
-            getRandomColor()
-        }
-    )
     Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-
-        Box(
-            modifier = Modifier
-                .aspectRatio(1f)
-                .fillMaxSize()
-                .padding(animatedPadding, vertical = animateVerticalPadding)
-                .background(backgroundColor)
-                .clickable(
-                    interactionSource = remember { MutableInteractionSource() },
-                    indication = null
-                ) {
-                    toggled = !toggled
-                }
-        )
-
-    }
-
+        modifier.fillMaxSize()
+    ) {  }
 }
